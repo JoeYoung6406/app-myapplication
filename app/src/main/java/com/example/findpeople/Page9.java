@@ -10,5 +10,14 @@ public class Page9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page9);
+
+      //  hello there
+        test();
+
+    }
+
+    private void test() {
+
+
     }
 }
