@@ -10,11 +10,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Page1 extends AppCompatActivity {
 
@@ -43,9 +51,12 @@ public class Page1 extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+
+
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         private String data1[], data2[];
+        private String data1All[], data2All[];
         private int images[];
         private Context context;
 
@@ -54,6 +65,9 @@ public class Page1 extends AppCompatActivity {
             data1 = s1;
             data2 = s2;
             images = img;
+            data1All = s1;
+            data2All = s2;
+
         }
 
         @NonNull
@@ -96,6 +110,9 @@ public class Page1 extends AppCompatActivity {
             return images.length;
         }
 
+
+
+
         public class MyViewHolder extends RecyclerView.ViewHolder {
 
             private TextView myText1, myText2;
@@ -114,4 +131,4 @@ public class Page1 extends AppCompatActivity {
         }
     }
 
-}
+ }
