@@ -40,8 +40,9 @@ public class Page6 extends AppCompatActivity {
         Page6.MyAdapter myAdapter = new Page6.MyAdapter(this, s1, s2, images);
         Log.v("joe", "new myAdapterPage6");
 
-        recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(myAdapter);
+
     }
 
     public class MyAdapter extends RecyclerView.Adapter<Page6.MyAdapter.MyViewHolder> {
@@ -55,6 +56,22 @@ public class Page6 extends AppCompatActivity {
             data1 = s1;
             data2 = s2;
             images = img;
+        }
+        public class MyViewHolder extends RecyclerView.ViewHolder {
+
+            private TextView myText1, myText2;
+            private ImageView myImage;
+            private ConstraintLayout mainLayout;
+
+            public MyViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                //抓取id
+                myText1 = itemView.findViewById(R.id.myText1Page6);
+                myText2 = itemView.findViewById(R.id.myText2Page6);
+                myImage = itemView.findViewById(R.id.myImageViewPage6);
+                mainLayout = itemView.findViewById(R.id.mainLayoutPage6);
+            }
         }
 
         @NonNull
@@ -77,7 +94,6 @@ public class Page6 extends AppCompatActivity {
             holder.myText2.setText(data2[position]);
             holder.myImage.setImageResource(images[position]);
 
-
             //觸發mainLayout listener
             holder.mainLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,29 +105,11 @@ public class Page6 extends AppCompatActivity {
                     context.startActivity(intent);
                 }
             });
-
         }
 
         @Override
         public int getItemCount() {
             return images.length;
-        }
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-
-            private TextView myText1, myText2;
-            private ImageView myImage;
-            private ConstraintLayout mainLayout;
-
-            public MyViewHolder(@NonNull View itemView) {
-                super(itemView);
-
-                //抓取id
-                myText1 = itemView.findViewById(R.id.myText1Page6);
-                myText2 = itemView.findViewById(R.id.myText2Page6);
-                myImage = itemView.findViewById(R.id.myImageViewPage6);
-                mainLayout = itemView.findViewById(R.id.mainLayoutPage6);
-            }
         }
     }
 
