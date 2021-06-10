@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "411152274065",
+    "project_id": "joetest-dde00",
+    "storage_bucket": "joetest-dde00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411152274065:android:e7949281361a7d7d692530",
+        "android_client_info": {
+          "package_name": "com.example.findpeople"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411152274065-014a0hvg4nqrm47gv2hlf1hi3kmqol8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8famGr44dlVpVOMn2-WVs3X49spKFxqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411152274065-014a0hvg4nqrm47gv2hlf1hi3kmqol8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
