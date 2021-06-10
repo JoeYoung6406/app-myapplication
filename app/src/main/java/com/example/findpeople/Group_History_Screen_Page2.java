@@ -1,8 +1,12 @@
 package com.example.findpeople;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,4 +57,31 @@ public class Group_History_Screen_Page2 extends AppCompatActivity {
         mainImageViewGroup_History_Screen_Page2.setImageResource(imagesPage6);
     }
 
+    public void GoBackLastPage(View view) {
+        Intent intent = new Intent();
+        intent.setClass(Group_History_Screen_Page2.this, Group_History_Screen.class);
+        startActivity(intent);
+    }
+
+
+    public void GoToJoinOthers(View view) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("離開歷史查詢？");
+        alert.setMessage("確定要前往參加揪團頁面嗎？");
+        alert.setPositiveButton("前往", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent();
+                intent.setClass(Group_History_Screen_Page2.this, Join_Group_Screen.class);
+                startActivity(intent);
+            }
+        });
+        alert.setNegativeButton("等等再說", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alert.create().show();
+    }
 }

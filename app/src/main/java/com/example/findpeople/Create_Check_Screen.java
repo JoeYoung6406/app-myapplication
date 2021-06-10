@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -25,13 +26,10 @@ public class Create_Check_Screen extends AppCompatActivity {
         peopleShow = findViewById(R.id.peopleShow);
         sayShow = findViewById(R.id.sayShow);
 
-
         showResult();
     }
 
     private void showResult() {
-
-
         Bundle bundle = getIntent().getExtras();
         String date = bundle.getString("date");
         String mountain = bundle.getString("mountain");
@@ -42,36 +40,21 @@ public class Create_Check_Screen extends AppCompatActivity {
         mountainShow.setText(mountain);
         peopleShow.setText(people);
         sayShow.setText(say);
-
     }
 
     public void backToCreate(View view) {
-        goBackLastPage = findViewById(R.id.cancelCreate);
-        goBackLastPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(Create_Check_Screen.this, Create_Group_Screen.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent();
+        intent.setClass(Create_Check_Screen.this, Create_Group_Screen.class);
+        startActivity(intent);
+        Toast.makeText(Create_Check_Screen.this, "取消創建，重新填寫資料!",  Toast.LENGTH_SHORT).show();
     }
 
     public void goToGroupIngList(View view) {
-        goToGroupList = findViewById(R.id.submitCreate);
-        goToGroupList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(Create_Check_Screen.this, Search_Ing_Group_Screen.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent();
+        intent.setClass(Create_Check_Screen.this, Search_Ing_Group_Screen.class);
+        startActivity(intent);
+        Toast.makeText(Create_Check_Screen.this, "創建成功，前往揪團頁面執行任務吧!",  Toast.LENGTH_SHORT).show();
     }
+
 }
 
-
-//        bundle.putString("date", date);
-//                bundle.putString("mountain", mountain);
-//                bundle.putString("people", people);
-//                bundle.putString("sayText", sayText);

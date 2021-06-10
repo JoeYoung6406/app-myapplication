@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -26,10 +28,7 @@ public class Create_Group_Screen extends AppCompatActivity {
     TextView dateText;
     String data;
 
-
-
     private int mYear, mMonth, mDay;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,21 +66,19 @@ public class Create_Group_Screen extends AppCompatActivity {
                 mMonth = c.get(Calendar.MONTH);
                 mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                new DatePickerDialog(Create_Group_Screen.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog pickerDialog =new DatePickerDialog(Create_Group_Screen.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         String format = "您所選的日期為:" + setDateFormat(year, month, day);
                         dateText.setText(format);
                         data = setDateFormat(year, month, day);
                     }
+                }, mYear, mMonth, mDay);
 
-
-                }, mYear, mMonth, mDay).show();
-
+                pickerDialog.getDatePicker().setMinDate(c.getTime().getTime());
+                pickerDialog.show();
             }
-
         });
-
     }
 
     Spinner.OnItemSelectedListener listener = new Spinner.OnItemSelectedListener() {
@@ -89,7 +86,6 @@ public class Create_Group_Screen extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             //
             spinner1 = parent.getItemAtPosition(position).toString();
-            Log.v("joe", "spinner1=" + spinner1);
         }
 
         @Override
@@ -102,7 +98,6 @@ public class Create_Group_Screen extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             //抓spinner2選的值
             spinner2 = parent.getItemAtPosition(position).toString();
-            Log.v("joe", "spinner2=" + spinner2);
         }
 
         @Override
@@ -117,28 +112,30 @@ public class Create_Group_Screen extends AppCompatActivity {
     }
 
     public void submitCreate(View view) {
-        String date = data.toString();
-        String mountain = spinner1.toString();
-        String people = spinner2.toString();
-        String saySome;
 
-        saySome = createSay.getText().toString();
-        Log.v("joe", "creatSay=" + saySome);
+        if (data != null){
+            String date = data.toString();
+            String mountain = spinner1.toString();
+            String people = spinner2.toString();
+            String saySome;
 
+            saySome = createSay.getText().toString();
+            Intent intent = new Intent(this, Create_Check_Screen.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("date", date);
+            bundle.putString("mountain", mountain);
+            bundle.putString("people", people);
+            bundle.putString("sayText", saySome);
 
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }else{
+            Toast.makeText(Create_Group_Screen.this, "請檢查是否填寫正確資訊", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        Intent intent = new Intent(this, Create_Check_Screen.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("date", date);
-        bundle.putString("mountain", mountain);
-        bundle.putString("people", people);
-        bundle.putString("sayText", saySome);
-
-        Log.v("joe", "spinner2="+ spinner2);
-        Log.v("joe", "Say="+ saySome);
-
-        intent.putExtras(bundle);
-        startActivity(intent);
-
+    public void CloseInputKeyboard(View view) {
+//        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(Create_Group_Screen.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

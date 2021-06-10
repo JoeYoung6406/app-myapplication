@@ -49,10 +49,11 @@
         android:layout_width="339dp"
         android:layout_height="43dp"
         android:layout_marginBottom="40dp"
-        android:text="參加揪團"
+        android:text="參加此揪團"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="goToGroupIngList"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

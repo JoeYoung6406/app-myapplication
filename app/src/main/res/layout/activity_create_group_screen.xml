@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Create_Group_Screen">
+    tools:context=".Create_Group_Screen"
+    android:id="@+id/Create_bg"
+    android:onClick="CloseInputKeyboard">
 
 
     <TextView
