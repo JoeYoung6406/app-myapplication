@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindPeople">
-        <activity android:name=".Join_Group_Screen" />
+        <activity android:name=".Create_Check_Screen"
+            android:label="確認創建揪團"
+            android:parentActivityName=".Create_Group_Screen"
+            ></activity>
+        <activity android:name=".Join_Group_Screen"
+            android:label="參加揪團"
+            android:parentActivityName=".Menu_Group_Mission"
+            />
         <activity
             android:name=".Group_History_Screen"
             android:label="歷史揪團紀錄"
@@ -25,7 +32,7 @@
         <activity
             android:name=".Join_Group_Screen_Page2"
             android:label="查看揪團細節--參與揪團"
-            android:parentActivityName=".Page1" />
+            android:parentActivityName=".Join_Group_Screen" />
         <activity
             android:name=".Search_Ing_Group_Screen_Page2"
             android:label="查看揪團細節--執行任務"

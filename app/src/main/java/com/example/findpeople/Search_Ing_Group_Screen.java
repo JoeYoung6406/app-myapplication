@@ -30,8 +30,8 @@ public class Search_Ing_Group_Screen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
-    ArrayList<String> moviesList;
-    ArrayList<String> moviesList2;
+    private ArrayList<String> moviesList;
+    private ArrayList<String> moviesList2;
     private int images[] = {R.drawable.yushan, R.drawable.jalishan, R.drawable.guguan, R.drawable.huhwanshan,
             R.drawable.baydawushan, R.drawable.namguashan};
 
@@ -101,7 +101,7 @@ public class Search_Ing_Group_Screen extends AppCompatActivity {
         int images[];
 
 
-        public MyAdapter(Context context, ArrayList<String> moviesList, ArrayList<String> moviesList2, int images[]) {
+         private  MyAdapter(Context context, ArrayList<String> moviesList, ArrayList<String> moviesList2, int images[]) {
             this.context = context;
             this.moviesList = moviesList;
             this.moviesList2=moviesList2;

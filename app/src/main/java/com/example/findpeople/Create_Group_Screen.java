@@ -3,12 +3,15 @@ package com.example.findpeople;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -17,19 +20,35 @@ import java.util.Calendar;
 public class Create_Group_Screen extends AppCompatActivity {
     String s1[];
     String s2[];
+    EditText createSay;
+    String spinner1;
+    String spinner2;
+    TextView dateText;
+    String data;
+
+
 
     private int mYear, mMonth, mDay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group_screen);
 
+        createSay = findViewById(R.id.createSay);
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
 
+        spinner.setSelection(0, true);
+        spinner.setOnItemSelectedListener(listener);
+
+        spinner2.setSelection(0, true);
+        spinner2.setOnItemSelectedListener(listener2);
+
         s1 = getResources().getStringArray(R.array.mountain_list);
         s2 = getResources().getStringArray(R.array.mountain_people);
+
 
         ArrayAdapter<String> lunchList = new ArrayAdapter<>(Create_Group_Screen.this, R.layout.support_simple_spinner_dropdown_item, s1);
         ArrayAdapter<String> lunchList2 = new ArrayAdapter<>(Create_Group_Screen.this, R.layout.support_simple_spinner_dropdown_item, s2);
@@ -38,10 +57,9 @@ public class Create_Group_Screen extends AppCompatActivity {
         spinner2.setAdapter(lunchList2);
 
 
-
-        final TextView dateText = (TextView)findViewById(R.id.dateText);
-        Button dateButton = (Button)findViewById(R.id.dateButton);
-        dateButton.setOnClickListener(new View.OnClickListener(){
+        dateText = (TextView) findViewById(R.id.dateText);
+        Button dateButton = (Button) findViewById(R.id.dateButton);
+        dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Calendar c = Calendar.getInstance();
@@ -52,24 +70,75 @@ public class Create_Group_Screen extends AppCompatActivity {
                 new DatePickerDialog(Create_Group_Screen.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
-                        String format = "您設定的日期為:"+ setDateFormat(year,month,day);
+                        String format = "您所選的日期為:" + setDateFormat(year, month, day);
                         dateText.setText(format);
+                        data = setDateFormat(year, month, day);
                     }
 
-                }, mYear,mMonth, mDay).show();
+
+                }, mYear, mMonth, mDay).show();
+
             }
 
         });
 
     }
 
-    private String setDateFormat(int year,int monthOfYear,int dayOfMonth){
+    Spinner.OnItemSelectedListener listener = new Spinner.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            //
+            spinner1 = parent.getItemAtPosition(position).toString();
+            Log.v("joe", "spinner1=" + spinner1);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    };
+
+    Spinner.OnItemSelectedListener listener2 = new Spinner.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            //抓spinner2選的值
+            spinner2 = parent.getItemAtPosition(position).toString();
+            Log.v("joe", "spinner2=" + spinner2);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    };
+
+    private String setDateFormat(int year, int monthOfYear, int dayOfMonth) {
         return String.valueOf(year) + "-"
                 + String.valueOf(monthOfYear + 1) + "-"
                 + String.valueOf(dayOfMonth);
     }
 
-    public void jumptoPage1(View view) {
+    public void submitCreate(View view) {
+        String date = data.toString();
+        String mountain = spinner1.toString();
+        String people = spinner2.toString();
+        String saySome;
+
+        saySome = createSay.getText().toString();
+        Log.v("joe", "creatSay=" + saySome);
+
+
+
+        Intent intent = new Intent(this, Create_Check_Screen.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("date", date);
+        bundle.putString("mountain", mountain);
+        bundle.putString("people", people);
+        bundle.putString("sayText", saySome);
+
+        Log.v("joe", "spinner2="+ spinner2);
+        Log.v("joe", "Say="+ saySome);
+
+        intent.putExtras(bundle);
+        startActivity(intent);
 
     }
 }
