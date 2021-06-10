@@ -9,37 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindPeople">
-        <activity android:name=".Page9" />
-        <activity android:name=".Page8" />
+        <activity android:name=".Join_Group_Screen" />
         <activity
-            android:name=".Page6"
+            android:name=".Group_History_Screen"
             android:label="歷史揪團紀錄"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Menu_Group_Mission" />
         <activity
-            android:name=".Page4"
+            android:name=".Search_Ing_Group_Screen"
             android:label="正在進行中揪團"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Menu_Group_Mission" />
         <activity
-            android:name=".Page1"
-            android:label="參加揪團"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Page3"
+            android:name=".Create_Group_Screen"
             android:label="創建揪團"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Menu_Group_Mission" />
         <activity
-            android:name=".Page2"
+            android:name=".Join_Group_Screen_Page2"
             android:label="查看揪團細節--參與揪團"
             android:parentActivityName=".Page1" />
         <activity
-            android:name=".Page5"
+            android:name=".Search_Ing_Group_Screen_Page2"
             android:label="查看揪團細節--執行任務"
-            android:parentActivityName=".Page4" />
+            android:parentActivityName=".Search_Ing_Group_Screen" />
         <activity
-            android:name=".Page7"
+            android:name=".Group_History_Screen_Page2"
             android:label="查看歷史揪團細節"
-            android:parentActivityName=".Page6" />
-        <activity android:name=".MainActivity">
+            android:parentActivityName=".Group_History_Screen" />
+        <activity android:name=".Menu_Group_Mission">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

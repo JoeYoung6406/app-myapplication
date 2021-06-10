@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class Menu_Group_Mission extends AppCompatActivity {
 
 
     private Button goToNotYetPage;
@@ -24,54 +24,58 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_group_mission);
 
         // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference("message");
+//
+//        myRef.setValue("Hello, World!");
 
-        myRef.setValue("Hello, World!");
 
+        //創建揪團跳轉
+        goToCreateGroup = findViewById(R.id.goToCreateGroup);
+        goToCreateGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Menu_Group_Mission.this, Create_Group_Screen.class);
+                startActivity(intent);
+            }
+        });
 
         //參加揪團跳轉
-        goToNotYetPage =findViewById(R.id.goToNotYetPage);
+        goToNotYetPage = findViewById(R.id.goToNotYetPage);
         goToNotYetPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Page9.class);
+                intent.setClass(Menu_Group_Mission.this, Join_Group_Screen.class);
                 startActivity(intent);
             }
         });
 
-        //創建揪團跳轉
-        goToCreateGroup = findViewById(R.id.goToCreateGroup);
-        goToCreateGroup.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Page3.class);
-                startActivity(intent);
-            }
-        });
 
-        //參加中揪團跳轉
-        joinGroupIng = findViewById(R.id.joinGroupIng);
-        joinGroupIng.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Page4.class);
-                startActivity(intent);
-            }
-        });
 
+
+        //歷史參加揪團查詢
         groupHistory = findViewById(R.id.groupHistory);
-        groupHistory.setOnClickListener(new View.OnClickListener(){
+        groupHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Page6.class);
+                intent.setClass(Menu_Group_Mission.this, Group_History_Screen.class);
+                startActivity(intent);
+            }
+        });
+
+        //正在進行中揪團跳轉
+        joinGroupIng = findViewById(R.id.joinGroupIng);
+        joinGroupIng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Menu_Group_Mission.this, Search_Ing_Group_Screen.class);
                 startActivity(intent);
             }
         });

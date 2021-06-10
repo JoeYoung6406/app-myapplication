@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Page5 extends AppCompatActivity {
-    ImageView mainImageViewPage5;
-    TextView titlePage5, descriptionPage5;
+public class Search_Ing_Group_Screen_Page2 extends AppCompatActivity {
+    ImageView mainImageViewSearch_Ing_Group_Screen_Page2;
+    TextView titleSearch_Ing_Group_Screen_Page2, descriptionSearch_Ing_Group_Screen_Page2;
     String data3, data4;
     int imagesPage4;
 
@@ -17,13 +17,13 @@ public class Page5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page5);
+        setContentView(R.layout.activity_search_ing_group_screen_page2);
 
 //
 //        //抓 xml id
-        mainImageViewPage5 = findViewById(R.id.mainImageViewPage5);
-        titlePage5 = findViewById(R.id.titlePage5);
-        descriptionPage5 = findViewById(R.id.descriptionPage5);
+        mainImageViewSearch_Ing_Group_Screen_Page2 = findViewById(R.id.mainImageViewSearch_Ing_Group_Screen_Page2);
+        titleSearch_Ing_Group_Screen_Page2 = findViewById(R.id.titleSearch_Ing_Group_Screen_Page2);
+        descriptionSearch_Ing_Group_Screen_Page2 = findViewById(R.id.descriptionSearch_Ing_Group_Screen_Page2);
 
         getData();
         setData();
@@ -47,9 +47,9 @@ public class Page5 extends AppCompatActivity {
     private void setData(){
 
         //輸出版面
-        titlePage5.setText(data3);
-        descriptionPage5.setText(data4);
-        mainImageViewPage5.setImageResource(imagesPage4);
+        titleSearch_Ing_Group_Screen_Page2.setText(data3);
+        descriptionSearch_Ing_Group_Screen_Page2.setText(data4);
+        mainImageViewSearch_Ing_Group_Screen_Page2.setImageResource(imagesPage4);
     }
 
 }

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class Page3 extends AppCompatActivity {
+public class Create_Group_Screen extends AppCompatActivity {
     String s1[];
     String s2[];
 
@@ -23,7 +23,7 @@ public class Page3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page3);
+        setContentView(R.layout.activity_create_group_screen);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
@@ -31,8 +31,8 @@ public class Page3 extends AppCompatActivity {
         s1 = getResources().getStringArray(R.array.mountain_list);
         s2 = getResources().getStringArray(R.array.mountain_people);
 
-        ArrayAdapter<String> lunchList = new ArrayAdapter<>(Page3.this, R.layout.support_simple_spinner_dropdown_item, s1);
-        ArrayAdapter<String> lunchList2 = new ArrayAdapter<>(Page3.this, R.layout.support_simple_spinner_dropdown_item, s2);
+        ArrayAdapter<String> lunchList = new ArrayAdapter<>(Create_Group_Screen.this, R.layout.support_simple_spinner_dropdown_item, s1);
+        ArrayAdapter<String> lunchList2 = new ArrayAdapter<>(Create_Group_Screen.this, R.layout.support_simple_spinner_dropdown_item, s2);
 
         spinner.setAdapter(lunchList);
         spinner2.setAdapter(lunchList2);
@@ -49,7 +49,7 @@ public class Page3 extends AppCompatActivity {
                 mMonth = c.get(Calendar.MONTH);
                 mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                new DatePickerDialog(Page3.this, new DatePickerDialog.OnDateSetListener() {
+                new DatePickerDialog(Create_Group_Screen.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         String format = "您設定的日期為:"+ setDateFormat(year,month,day);
@@ -67,5 +67,9 @@ public class Page3 extends AppCompatActivity {
         return String.valueOf(year) + "-"
                 + String.valueOf(monthOfYear + 1) + "-"
                 + String.valueOf(dayOfMonth);
+    }
+
+    public void jumptoPage1(View view) {
+
     }
 }

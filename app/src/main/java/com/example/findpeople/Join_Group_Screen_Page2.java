@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Page2 extends AppCompatActivity {
+public class Join_Group_Screen_Page2 extends AppCompatActivity {
 
     ImageView mainImageView;
-    TextView title, descriptionPage2;
+    TextView title, descriptionJoin_Group_Screen_Page2;
     String data1, data2;
     int myImage;
 
@@ -18,13 +18,13 @@ public class Page2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page2);
+        setContentView(R.layout.activity_join_group_screen_page2);
 
 
         //抓 xml id
         mainImageView = findViewById(R.id.mainImageView);
         title = findViewById(R.id.title);
-        descriptionPage2 = findViewById(R.id.descriptionPage2);
+        descriptionJoin_Group_Screen_Page2 = findViewById(R.id.descriptionJoin_Group_Screen_Page2);
 
         getData();
         setData();
@@ -49,7 +49,7 @@ public class Page2 extends AppCompatActivity {
 
         //輸出版面
         title.setText(data1);
-        descriptionPage2.setText(data2);
+        descriptionJoin_Group_Screen_Page2.setText(data2);
         mainImageView.setImageResource(myImage);
     }
 }

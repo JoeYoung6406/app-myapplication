@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Page7">
+    tools:context=".Join_Group_Screen_Page2">
+
 
     <TextView
-        android:id="@+id/titlePage7"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -20,18 +21,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/mainImageViewPage7"
+        android:id="@+id/mainImageView"
         android:layout_width="350sp"
         android:layout_height="200sp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titlePage7"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         app:srcCompat="@drawable/yushan" />
 
     <TextView
-        android:id="@+id/descriptionPage7"
+        android:id="@+id/descriptionJoin_Group_Screen_Page2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -41,17 +42,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainImageViewPage7" />
+        app:layout_constraintTop_toBottomOf="@+id/mainImageView" />
 
-<!--    <Button-->
-<!--        android:id="@+id/goToMission"-->
-<!--        android:layout_width="339dp"-->
-<!--        android:layout_height="43dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:text="開始任務"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <Button
+        android:id="@+id/joinButton"
+        android:layout_width="339dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="40dp"
+        android:text="參加揪團"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

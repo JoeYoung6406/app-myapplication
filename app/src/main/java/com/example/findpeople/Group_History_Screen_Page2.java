@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Page7 extends AppCompatActivity {
+public class Group_History_Screen_Page2 extends AppCompatActivity {
 
-    ImageView mainImageViewPage7;
-    TextView titlePage7, descriptionPage7;
+    ImageView mainImageViewGroup_History_Screen_Page2;
+    TextView titleGroup_History_Screen_Page2, descriptionGroup_History_Screen_Page2;
 
 
     String data5, data6;
@@ -19,12 +19,12 @@ public class Page7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page7);
+        setContentView(R.layout.activity_group_history_screen_page2);
 
         //抓 xml id
-        mainImageViewPage7 = findViewById(R.id.mainImageViewPage7);
-        titlePage7 = findViewById(R.id.titlePage7);
-        descriptionPage7 = findViewById(R.id.descriptionPage7);
+        mainImageViewGroup_History_Screen_Page2 = findViewById(R.id.mainImageViewGroup_History_Screen_Page2);
+        titleGroup_History_Screen_Page2 = findViewById(R.id.titleGroup_History_Screen_Page2);
+        descriptionGroup_History_Screen_Page2 = findViewById(R.id.descriptionGroup_History_Screen_Page2);
 
         getData();
         setData();
@@ -48,9 +48,9 @@ public class Page7 extends AppCompatActivity {
     private void setData(){
 
         //輸出版面
-        titlePage7.setText(data5);
-        descriptionPage7.setText(data6);
-        mainImageViewPage7.setImageResource(imagesPage6);
+        titleGroup_History_Screen_Page2.setText(data5);
+        descriptionGroup_History_Screen_Page2.setText(data6);
+        mainImageViewGroup_History_Screen_Page2.setImageResource(imagesPage6);
     }
 
 }

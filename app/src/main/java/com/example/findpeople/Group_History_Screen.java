@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Page6 extends AppCompatActivity {
+public class Group_History_Screen extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
@@ -27,25 +27,25 @@ public class Page6 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page6);
+        setContentView(R.layout.activity_group_history_screen);
 
         //抓取String.xml裡的資料
-        s1 = getResources().getStringArray(R.array.groupHistoryPage6);
-        s2 = getResources().getStringArray(R.array.descriptionPage6);
+        s1 = getResources().getStringArray(R.array.groupHistoryGroup_History_Screen);
+        s2 = getResources().getStringArray(R.array.descriptionGroup_History_Screen);
 
 
-        recyclerView = findViewById(R.id.groupHistoryPage6);
+        recyclerView = findViewById(R.id.groupHistoryGroup_History_Screen);
 
 
-        Page6.MyAdapter myAdapter = new Page6.MyAdapter(this, s1, s2, images);
-        Log.v("joe", "new myAdapterPage6");
+        Group_History_Screen.MyAdapter myAdapter = new Group_History_Screen.MyAdapter(this, s1, s2, images);
+        Log.v("joe", "new myAdapterGroup_History_Screen");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myAdapter);
 
     }
 
-    public class MyAdapter extends RecyclerView.Adapter<Page6.MyAdapter.MyViewHolder> {
+    public class MyAdapter extends RecyclerView.Adapter<Group_History_Screen.MyAdapter.MyViewHolder> {
 
         private String data1[], data2[];
         private int images[];
@@ -76,18 +76,18 @@ public class Page6 extends AppCompatActivity {
 
         @NonNull
         @Override
-        public Page6.MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public Group_History_Screen.MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             //create出 my_row 版面
             LayoutInflater inflater = LayoutInflater.from(context);
-            View view = inflater.inflate(R.layout.my_rowpage6, parent, false);
-            Page6.MyAdapter.MyViewHolder vh = new Page6.MyAdapter.MyViewHolder(view);
+            View view = inflater.inflate(R.layout.row_group_history_screen, parent, false);
+            Group_History_Screen.MyAdapter.MyViewHolder vh = new Group_History_Screen.MyAdapter.MyViewHolder(view);
 
             return vh;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull Page6.MyAdapter.MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Group_History_Screen.MyAdapter.MyViewHolder holder, int position) {
 
             //產生資料
             holder.myText1.setText(data1[position]);
@@ -98,7 +98,7 @@ public class Page6 extends AppCompatActivity {
             holder.mainLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, Page7.class);
+                    Intent intent = new Intent(context, Group_History_Screen_Page2.class);
                     intent.putExtra("data1Page6", data1[position]);
                     intent.putExtra("data2Page6", data2[position]);
                     intent.putExtra("myImagePage6", images[position]);
