@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindPeople">
         <activity android:name=".Create_Check_Screen"
-            android:label="確認創建揪團"
+            android:label="確認創建資訊"
             android:parentActivityName=".Create_Group_Screen"
             ></activity>
         <activity android:name=".Join_Group_Screen"
